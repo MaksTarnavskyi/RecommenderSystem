@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<a href="{{ url_for('index') }}">
+<img src="static/img/Megogo_1.png"  alt='logo' style="width: 100%">
+</a>
+
+<!-- <h1 style="font-size: 3.5em; text-align: center; "> <b>Recommender System</b></h1> -->
+
+<!-- <h2 style="font-size: 2.5em; text-align: center;"> <b>Films in train</b></h2>
+  {%for item in liked_items%}
+      <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1em; width:7.5em;' src={{start_src+kino_dic[item]+end_src}}></a>
+  {%endfor%} -->
+
+<h2 style="font-size: 2.5em; text-align: center; "> <b>Recommended films</b></h2>
+  <!-- {%for item in pred_items%}
+      <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1em; width:7.5em;' src={{start_src+kino_dic[item]+end_src}}></a>
+  {%endfor%} -->
+
+  <form method="post" role="form" id="mod_type">
+<div class="row" >
+<div class="col-sm-8">
+    <ul>
+      {%for item in pred_items%}
+        <li>
+          <input type="checkbox" id={{item}} name={{item}} value={{item}} style="display:none">
+          <label for={{item}}><img style='width:6.5em; height: 9.5em;' src={{start_src+kino_dic[item]+end_src}}></label>
+        </li>
+        {%endfor%}
+    </ul>
+  </div>
+  <div class="col-sm-4" >
+  </div>
+</div>
+<div class="row" style="text-align: center;">
+  <!--  -->
+  <!-- <h2 style="font-size: 2.5em; text-align: center;"> <b>Films in train</b></h2>
+    {%for item in liked_items%}
+        <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1em; width:7.5em;' src={{start_src+kino_dic[item]+end_src}}></a>
+    {%endfor%} -->
+<h2 style="font-size: 2.5em; text-align: center; display:inline-block;"> <b>Select good recommendations and</b></h2>
+<button type="submit" value="Recommend" class="my_btn_black" href="{{ url_for('metrics_page') }}" style="display: inline-block; margin-left: 2em; margin-top: -0.5em;"><span class="text_btn_black_submmit">Get metrics</span></button>
+</div>
+
+</form>
+
+
+
+
+
+{% endblock %}

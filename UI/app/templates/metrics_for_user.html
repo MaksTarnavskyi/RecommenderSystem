@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+<a href="{{ url_for('index') }}">
+<img src="static/img/Megogo_1.png"  alt='logo' style="width: 100%">
+</a>
+
+<h1 style="font-size: 3.5em; text-align: center"> <b>Choose user for demonstration</b></h1>
+
+<div class="row">
+
+    <table class="table table-striped" >
+          <thead>
+            <tr>
+              {% for name_col in df_metrics_per_user.columns%}
+                <th><h4>{{name_col}}
+                  <form method=POST style="display: inline-block">
+                    <input type="hidden" name='sort_column' value={{name_col}}>
+                    {%if name_col == current_column%}
+                      {%if ascending%}
+                        <input type="image" src="static/img/Sort_up.svg" alt='sort_column'  style="height: 1.5em; margin-left: 0.1em; margin-bottom: -0.6em;" />
+                      {%else%}
+                        <input type="image" src="static/img/Sort_down.svg" alt='sort_column'  style="height: 1.5em; margin-left: 0.1em; margin-bottom: -0.2em;" />
+                      {%endif%}
+                    {%else%}
+                      <input type="image" src="static/img/Sort.svg" alt='sort_column'  style="height: 1.5em; margin-left: 0.1em; margin-bottom: -0.4em;" />
+                    {%endif%}
+                  </form>
+                </h4></th>
+              {% endfor %}
+            </tr>
+          </thead>
+          {% for row in df_metrics_per_user.values%}
+
+            <tr>
+
+              <td><a href="{{ url_for('user_demonstration', user_name=row[0]) }}" style='font-size: 1em; color: black'>{{ row[0] }}</a></td>
+              {% for value in row[1:]%}
+                <td>{{ value }}</td>
+              {% endfor %}
+            </tr>
+
+          {% endfor %}
+      </table>
+
+
+
+  </div>
+
+{% endblock %}

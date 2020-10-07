@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<a href="{{ url_for('index') }}">
+<img src="static/img/Megogo_1.png"  alt='logo' style="width: 100%">
+</a>
+
+<!-- <h1 style="font-size: 3.5em; text-align: center; margin-top: -1em;"> <b>Recommender System</b></h1> -->
+<h2 style="font-size: 2.5em; text-align: center; "> <b>{{meta_info[0]}}</b></h2>
+
+
+<div class='row'>
+  <div class="col-sm-4">
+      <img style='display: inline-block; margin: 1em; width:20em;' src={{start_src+kino_dic[item_name]+end_src}}>
+  </div>
+  <div class="col-sm-5">
+      <h4>Країна: {{meta_info[3]}}</h4>
+      <h4>Рік:    {{meta_info[2]}}</h4>
+      <h4>Якість: {{meta_info[8]}}</h4>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

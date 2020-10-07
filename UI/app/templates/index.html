@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<a href="{{ url_for('index') }}">
+<img src="static/img/Megogo.png"  alt='logo' style="width: 100%">
+</a>
+
+<h1 style="font-size: 3.5em; text-align: center; margin-top: -1em;"> <b>Recommender System</b></h1>
+
+<div class="row" style="margin-top: 8em; display: block; margin-left: auto; margin-right: auto;">
+
+  <div class="col-sm-4" style="margin-left: 0em;">
+    <a class="my_btn_black" href="{{ url_for('metrics_page') }}"><span class="text_btn_black">General info</span></a>
+  </div>
+  <div class="col-sm-4">
+    <a class="my_btn_black" href="{{ url_for('select_items') }}"><span class="text_btn_black">Recommend</span></a>
+  </div>
+  <div class="col-sm-4">
+    <a class="my_btn_black" href="{{ url_for('metrics_for_user') }}"><span class="text_btn_black">Demonstration</span></a>
+  </div>
+
+</div>
+
+{% endblock %}

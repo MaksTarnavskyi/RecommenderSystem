@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+<!-- {% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='css/img_checkbox.css')}}">
+{% endblock %} -->
+
+{% block app_content %}
+
+
+<a href="{{ url_for('index') }}">
+<img src="static/img/Megogo_1.png"  alt='logo' style="width: 100%">
+</a>
+
+<h1 style="font-size: 3.5em; text-align: center"> <b>Select films</b></h1>
+<form method="post" role="form" id="mod_type">
+  <ul>
+    {%for item in items_list%}
+      <li>
+        <input type="checkbox" id={{item}} name={{item}} value={{item}} style="display:none">
+        <label for={{item}}><img style='width:7.5em; height: 10.5em;' src={{start_src+kino_dic[item]+end_src}}></label>
+      </li>
+      {%endfor%}
+  </ul>
+
+<div style="height: 1em; width: 1em;">
+</div>
+
+<button type="submit" value="Recommend" class="my_btn_black" href="{{ url_for('metrics_page') }}"><span class="text_btn_black_submmit">Recommend</span></button>
+</form>
+
+<div style="height: 4em; width: 1em;">
+</div>
+
+
+{% endblock %}

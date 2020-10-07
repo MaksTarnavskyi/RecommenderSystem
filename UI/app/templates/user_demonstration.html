@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<a href="{{ url_for('index') }}">
+<img src="static/img/Megogo_1.png"  alt='logo' style="width: 100%">
+</a>
+
+<!-- <h1 style="font-size: 3.5em; text-align: center; margin-top: -1em;"> <b>Recommender System</b></h1> -->
+<h2 style="font-size: 2.5em; text-align: center; "> <b>Recommended films</b></h2>
+  {%for item in pred_items%}
+    {%if item in common_items%}
+      <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1em; width:5.5em; border: 6px dashed black;' src={{start_src+kino_dic[item]+end_src}}></a>
+    {%else%}
+      <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1em; width:5.5em;' src={{start_src+kino_dic[item]+end_src}}></a>
+    {%endif%}
+  {%endfor%}
+
+<h2 style="font-size: 2.5em; text-align: center;"> <b>Films in test</b></h2>
+  {%for item in test_items%}
+    {%if item in common_items%}
+      <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1em; width:5.5em; border: 6px dashed black;' src={{start_src+kino_dic[item]+end_src}}></a>
+    {%else%}
+      <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1em; width:5.5em;' src={{start_src+kino_dic[item]+end_src}}></a>
+    {%endif%}
+  {%endfor%}
+
+<h2 style="font-size: 2.5em; text-align: center;"> <b>Films in train</b></h2>
+  {%for item in train_items%}
+      <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1em; width:5.5em;' src={{start_src+kino_dic[item]+end_src}}></a>
+  {%endfor%}
+{% endblock %}

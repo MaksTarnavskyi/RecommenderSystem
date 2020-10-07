@@ -1,0 +1,33 @@
+
+.btn-black {
+    width: 300px;
+    background-color: black;
+    color: white;
+    font-size:1.15em;
+}
+.btn-black:hover {
+  background-color: #404040;
+  color: white;
+}
+
+
+.btn-green {
+    width: 120px;
+    background-color: #96c03d;
+    color: white;
+    font-size:1.15em;
+}
+.btn-green:hover {
+  color: white;
+}
+
+.btn-orange {
+  width: 120px;
+  background-color:#F9690E;
+  color: white;
+  font-size:1.15em;
+}
+
+.btn-orange:hover {
+  color: white;
+}
