@@ -1,0 +1,89 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{super()}}
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel="stylesheet">
+<link rel="stylesheet" href="{{url_for('static', filename='css/buttons_4.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/basic_style_2.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/img_checkbox.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/waiting_circles.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/waiting_clock.css')}}">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+.my_btn_black {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 300px;
+  height: 70px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 2em;
+  font-weight:900;
+  position: relative;
+}
+
+.text_btn_black{
+  position: absolute;
+  transform: translate(0, 15px);
+  left: 0;
+  right: 0;
+}
+.my_btn_black:hover {
+  color: white;
+
+}
+
+.text_btn_black_submmit{
+  position: absolute;
+  transform: translate(0, -20px);
+  left: 0;
+  right: 0;
+}
+.my_btn_black_submmit:hover {
+  color: white;
+
+}
+
+
+#footer {
+   position: fixed;
+   bottom:2em;
+   left: 50%;
+   /*width:70em;
+   height:30px;   /* Height of the footer */
+   /*background:#6cf; */
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/modernizr.js')}}"></script>
+{{super()}}
+{% endblock %}
+
+
+{% block title %}
+    {% if title %}{{ title }} -  - Recommendation System{% else %}Welcome to Recommendation System{% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container" style="min-height:100%; height:100%;">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% block app_content %}{% endblock %}
+
+    </div>
+
+
+{% endblock %}

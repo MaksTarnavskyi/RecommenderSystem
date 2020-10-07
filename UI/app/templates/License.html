@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+
+  <section>
+    <nav class='nav_block'>
+      <ol class="cd-multi-steps text-top">
+        <li class="current"><a href="{{ url_for('index') }}">Input</a></li>
+  			<li><a href="#0">Model</a></li>
+  			<li><a href="#0">Train</a></li>
+        <li><a href="#0">Validation</a></li>
+  			<li><a href="#0">Result</a></li>
+      </ol>
+    </nav>
+  </section>
+
+<hr>
+<div class="row" style="margin-left: 150px;">
+  <p style="font-size: 1.5em;">★ All models in this project are licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause" style="color: #F9690E">BSD 3-Clause</a> license, so they can be used for pretty much everything, including commercial applications.</p>
+
+</div>
+
+{% endblock %}

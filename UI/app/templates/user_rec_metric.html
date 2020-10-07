@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<a href="{{ url_for('index') }}">
+<img src="static/img/Megogo_1.png"  alt='logo' style="width: 100%">
+</a>
+
+<!-- <h1 style="font-size: 3.5em; text-align: center; "> <b>Recommender System</b></h1> -->
+
+
+<!-- <div style="width: 1em; height: 5em;">
+</div> -->
+<!-- <h2 style="font-size: 2.5em; text-align: center;"> <b>Films in train</b></h2>
+  {%for item in liked_items%}
+      <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1em; width:7.5em;' src={{start_src+kino_dic[item]+end_src}}></a>
+  {%endfor%} -->
+
+<h2 style="font-size: 2.5em; text-align: center; "> <b>Recommended films</b></h2>
+<div class="row">
+<div class="col-sm-8">
+  <ul>
+    {%for item in pred_items%}
+      <li>
+        {%if item in good_pred_items%}
+        <input type="checkbox" id={{item}} name={{item}} value={{item}} style="display:none" checked>
+        {%else%}
+        <input type="checkbox" id={{item}} name={{item}} value={{item}} style="display:none">
+        {%endif%}
+        <label for={{item}}><img style='width:6.5em; height: 9.5em;' src={{start_src+kino_dic[item]+end_src}}></label>
+      </li>
+      {%endfor%}
+  </ul>
+<!-- {%for item in pred_items%}
+  {%if item in good_pred_items%}
+    <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1.45em; width:7.5em; border: 7px dashed black;' src={{start_src+kino_dic[item]+end_src}}></a>
+  {%else%}
+    <a href="{{ url_for('item_page', item_name=item) }}"><img style='display: inline-block; margin: 1.45em; width:7.5em;' src={{start_src+kino_dic[item]+end_src}}></a>
+  {%endif%}
+{%endfor%} -->
+
+
+
+</div>
+
+<div class="col-sm-4" >
+  <!-- <table class="table table-striped">
+    {% for row in metric_values%}
+            <tr>
+              {% for value in row%}
+                <td>{{ value }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+  </table> -->
+  <iframe src="{{url_for('plot', name='rec_metric_table')}}" frameborder=0 style="width: 100%; height:20em; margin-top: 2em;"></iframe>
+</div>
+
+</div>
+
+<div class="row" style="text-align: center;">
+
+<h2 style="font-size: 2.5em; text-align: center; display:inline-block;"> <b>Select good recommendations and</b></h2>
+<button type="submit" value="Recommend" class="my_btn_black" href="{{ url_for('metrics_page') }}" style="display: inline-block; margin-left: 2em; margin-top: -0.5em;"><span class="text_btn_black_submmit">Get metrics</span></button>
+</div>
+  <!-- <h2 style="font-size: 2.5em; text-align: center;"> <b>Metrics</b></h2> -->
+  <!-- <div class="row">
+  <div class="col-sm-7" style="margin-left: 12em; margin-top: -1em;">
+    <iframe src="{{url_for('plot', name='rec_metric_table')}}" frameborder=0 style="width: 100%; height:10em; margin-top: 2em;"></iframe>
+  </div> -->
+  <!-- </div> -->
+
+
+  <!-- <form method="post" role="form" id="mod_type">
+    <ul>
+      {%for item in pred_items%}
+        <li>
+          <input type="checkbox" id={{item}} name={{item}} value={{item}} style="display:none">
+          <label for={{item}}><img style='width:7.5em; height: 10.5em;' src={{start_src+kino_dic[item]+end_src}}></label>
+        </li>
+        {%endfor%}
+    </ul>
+
+<div class="row" style="text-align: center;">
+
+<h2 style="font-size: 2.5em; text-align: center; display:inline-block;"> <b>Select good recommendations and</b></h2>
+<button type="submit" value="Recommend" class="my_btn_black" href="{{ url_for('metrics_page') }}" style="display: inline-block; margin-left: 2em; margin-top: -0.5em;"><span class="text_btn_black_submmit">Get metrics</span></button>
+</div>
+
+</form> -->
+
+
+
+{% endblock %}
