@@ -1,1 +1,1 @@
-# Recommender_system
+Recommender System based on data from Megogo Kaggle Challenge
