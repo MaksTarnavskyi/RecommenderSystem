@@ -1,6 +1,6 @@
 # Recommender System project
 
-This project is based on data from Megogo Kaggle Challenge
+This project is based on data from <b>Megogo Kaggle Challenge</b>
 https://www.kaggle.com/c/megogochallenge
 
 
